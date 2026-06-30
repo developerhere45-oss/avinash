@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Doctor Login | Disha HealthQ</title>
+  <link rel="stylesheet" href="styles.css?v=62" />
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="doctor-login.js?v=3"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#home" aria-label="Disha HealthQ home">
+      <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="doctors.html">Find Doctors</a>
+      <a href="medicine.html">Medicine Store</a>
+      <a href="services.html">Services</a>
+      <a href="doctor-login.html" class="active">Doctor Login</a>
+    </nav>
+    <div class="header-actions">
+      <a class="login-button" href="index.html#home"><i data-lucide="user-round"></i>Patient Home</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-shell">
+      <div class="auth-copy">
+        <span class="hero-trust"><i data-lucide="stethoscope"></i>Provider access</span>
+        <h1>Login as Doctor</h1>
+        <p>Open your appointment dashboard to review confirmed bookings, pending follow-ups, completed visits and patient reviews.</p>
+        <div class="auth-split">
+          <a href="index.html#home" data-patient-login-link>
+            <i data-lucide="user-round"></i>
+            <strong>Login as Patient</strong>
+            <small>Google or mobile from patient page</small>
+          </a>
+          <span>
+            <i data-lucide="layout-dashboard"></i>
+            <strong>Doctor Dashboard</strong>
+            <small>Appointments, status, reviews</small>
+          </span>
+        </div>
+      </div>
+
+      <form class="doctor-login-card" id="doctorLoginForm">
+        <span class="section-kicker"><i data-lucide="lock-keyhole"></i>Secure Login</span>
+        <h2>Doctor Account</h2>
+        <div class="auth-provider-panel">
+          <button class="auth-provider-button" type="button" id="doctorGoogleLogin">
+            <i data-lucide="chrome"></i>
+            <span><strong>Continue with Google</strong><small>Requires approved doctor email</small></span>
+          </button>
+          <div class="auth-phone-form compact">
+            <label>
+              <span>Doctor mobile number</span>
+              <input id="doctorMobileNumber" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digit mobile number" />
+            </label>
+            <button class="outline-action" type="button" id="doctorMobileLoginButton"><i data-lucide="smartphone"></i>Mobile Login</button>
+          </div>
+          <small class="auth-note">Google OAuth and SMS OTP need production provider keys. The approved doctor access-code login below is live now.</small>
+        </div>
+        <label>
+          <span>Approved doctor</span>
+          <select id="doctorLoginSelect" required>
+            <option value="">Loading doctors...</option>
+          </select>
+        </label>
+        <label>
+          <span>Access code</span>
+          <input id="doctorAccessCode" type="password" placeholder="Demo: doctor123" required />
+        </label>
+        <p class="form-hint">Use demo code <strong>doctor123</strong> or the last 4 characters of the doctor's license.</p>
+        <button class="black-button full" type="submit" id="doctorLoginButton">Open Dashboard</button>
+        <small id="doctorLoginMessage" class="form-message"></small>
+      </form>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

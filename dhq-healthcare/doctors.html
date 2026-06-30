@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Find Doctors | Disha HealthQ</title>
+  <link rel="stylesheet" href="styles.css?v=67" />
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="script.js?v=38"></script>
+</head>
+<body class="doctors-page">
+  <header class="site-header">
+    <a class="brand" href="index.html#home" aria-label="Disha HealthQ home">
+      <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="doctors.html" class="active">Doctors</a>
+      <a href="#specialties-page">Specialties</a>
+      <a href="index.html#clinics">Clinics</a>
+      <a href="index.html#hospital-services">Hospitals</a>
+      <a href="medicine.html">Medicine Store</a>
+      <a href="services.html">Services</a>
+      <a href="services.html#plans">Health Packages</a>
+      <a href="index.html#footer">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="location-select" type="button" data-location-request>
+        <i data-lucide="map-pin"></i>
+        <span data-location-label>Select Location</span>
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <button class="login-button doctors-user-button" type="button" data-login aria-label="Login or signup">
+        <i data-lucide="user-round"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero doctors-page-hero">
+      <div class="doctors-hero-copy">
+        <span class="hero-trust"><i data-lucide="stethoscope"></i>Find the right care, faster</span>
+        <h1>Search, Compare & Book Verified Doctors</h1>
+        <p>Use specialty, symptoms, fees and availability filters to book clinic or video appointments with trusted doctors.</p>
+        <div class="doctors-hero-features">
+          <span><i data-lucide="shield-check"></i><strong>Verified Doctors</strong><small>Trusted & experienced</small></span>
+          <span><i data-lucide="clock-3"></i><strong>Live Availability</strong><small>Real-time slots</small></span>
+          <span><i data-lucide="indian-rupee"></i><strong>Transparent Fees</strong><small>Compare & choose</small></span>
+          <span><i data-lucide="video"></i><strong>Video Consult</strong><small>From the comfort of home</small></span>
+        </div>
+      </div>
+
+      <div class="doctors-hero-art" aria-hidden="true">
+        <span class="doctor-blob"></span>
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=760&q=88" alt="" />
+        <div class="doctor-float-card patients">
+          <span class="mini-avatars"><img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=80&q=80" alt="" /><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=80&q=80" alt="" /><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=80&q=80" alt="" /></span>
+          <strong>10K+</strong>
+          <small>Happy Patients</small>
+        </div>
+        <div class="doctor-float-card rating">
+          <i data-lucide="star"></i>
+          <strong>4.8</strong>
+          <small>Patient Rating</small>
+        </div>
+        <div class="doctor-float-card support">
+          <i data-lucide="headphones"></i>
+          <strong>24/7</strong>
+          <small>Support</small>
+        </div>
+      </div>
+
+      <form class="hero-search page-search" id="heroSearch">
+        <label class="search-field search-main">
+          <i data-lucide="search"></i>
+          <span class="field-copy"><strong>Search</strong><input id="doctorSearch" type="search" placeholder="Search doctors, symptoms..." autocomplete="off" /></span>
+        </label>
+        <label class="search-field">
+          <i data-lucide="map-pin"></i>
+          <span class="field-copy"><strong>Location</strong><select id="locationSelect" aria-label="Choose location">
+              <option value="">Select Location</option>
+            </select></span>
+        </label>
+        <label class="search-field">
+          <i data-lucide="grip"></i>
+          <span class="field-copy"><strong>Select Specialty</strong><select id="specialtySelect" aria-label="Select specialty">
+              <option value="All">Select Specialty</option>
+              <option value="Cardiologist">Cardiologist</option>
+              <option value="Neurologist">Neurologist</option>
+              <option value="Orthopedist">Orthopedist</option>
+              <option value="Dermatologist">Dermatologist</option>
+              <option value="Gynecologist">Gynecologist</option>
+              <option value="Pediatrician">Pediatrician</option>
+              <option value="Ophthalmologist">Ophthalmologist</option>
+              <option value="Dentist">Dentist</option>
+            </select></span>
+        </label>
+        <button class="black-button" type="submit">Search Doctors <i data-lucide="arrow-right"></i></button>
+        <div class="popular-searches doctors-popular-searches">
+          <strong>Popular Searches:</strong>
+          <button type="button" data-specialty="All">General Physician</button>
+          <button type="button" data-specialty="Dermatologist">Dermatologist</button>
+          <button type="button" data-specialty="Pediatrician">Pediatrician</button>
+          <button type="button" data-specialty="Gynecologist">Gynecologist</button>
+          <button type="button" data-specialty="Cardiologist">Cardiologist</button>
+          <button type="button" data-specialty="All">View all</button>
+        </div>
+      </form>
+
+      <div class="doctors-secure-note"><i data-lucide="shield-check"></i><span>100% Secure</span><b>&bull;</b><span>Your data is safe with us</span></div>
+    </section>
+
+    <section class="content-section specialty-section" id="specialties-page">
+      <div class="section-heading">
+        <h2>Browse by <span>Specialization</span></h2>
+        <button class="text-link" type="button" data-specialty="All">View all specialties <i data-lucide="arrow-right"></i></button>
+      </div>
+      <div class="specialty-grid">
+        <button class="specialty-card" type="button" data-specialty="Cardiologist"><span class="circle-icon pink"><i data-lucide="heart-pulse"></i></span><strong>Cardiology</strong><small>Heart & Vascular Care</small><em><i data-lucide="chevron-right"></i></em></button>
+        <button class="specialty-card" type="button" data-specialty="Neurologist"><span class="circle-icon purple"><i data-lucide="brain"></i></span><strong>Neurology</strong><small>Brain & Nervous System</small><em><i data-lucide="chevron-right"></i></em></button>
+        <button class="specialty-card" type="button" data-specialty="Orthopedist"><span class="circle-icon green"><i data-lucide="bone"></i></span><strong>Orthopedics</strong><small>Bones, Joints & Muscles</small><em><i data-lucide="chevron-right"></i></em></button>
+        <button class="specialty-card" type="button" data-specialty="Gynecologist"><span class="circle-icon pink"><i data-lucide="venus"></i></span><strong>Gynecology</strong><small>Women's Health</small><em><i data-lucide="chevron-right"></i></em></button>
+        <button class="specialty-card" type="button" data-specialty="Pediatrician"><span class="circle-icon orange"><i data-lucide="baby"></i></span><strong>Pediatrics</strong><small>Child & Adolescent Care</small><em><i data-lucide="chevron-right"></i></em></button>
+        <button class="specialty-card" type="button" data-specialty="Ophthalmologist"><span class="circle-icon blue"><i data-lucide="eye"></i></span><strong>Ophthalmology</strong><small>Eye & Vision Care</small><em><i data-lucide="chevron-right"></i></em></button>
+      </div>
+    </section>
+
+    <section class="content-section doctors-section" id="doctors">
+      <div class="section-heading doctors-heading">
+        <div>
+          <div class="heading-line">
+            <h2>Available Doctors</h2>
+            <span class="trust-badge"><i data-lucide="sparkles"></i>Only approved doctors are listed</span>
+          </div>
+          <p>Book an appointment and open VC/chat after confirmation.</p>
+        </div>
+      </div>
+
+      <form class="doctor-toolbar" id="doctorToolbar">
+        <label class="toolbar-field toolbar-search">
+          <i data-lucide="search"></i>
+          <input id="doctorSectionSearch" type="search" placeholder="Search doctors, specialities, clinics..." />
+        </label>
+        <label class="toolbar-field">
+          <i data-lucide="stethoscope"></i>
+          <select id="doctorSectionSpecialty" aria-label="Select specialty">
+            <option value="All">Select Speciality</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Orthopedist">Orthopedist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Gynecologist">Gynecologist</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Ophthalmologist">Ophthalmologist</option>
+            <option value="Dentist">Dentist</option>
+          </select>
+        </label>
+        <label class="toolbar-field">
+          <i data-lucide="calendar-days"></i>
+          <select id="availabilityFilter" aria-label="Availability">
+            <option>Available Today</option>
+            <option>Available Tomorrow</option>
+            <option>This Week</option>
+          </select>
+        </label>
+        <button class="filter-button" type="button"><i data-lucide="sliders-horizontal"></i>Filters</button>
+        <button class="purple-button" type="submit"><i data-lucide="search"></i>Search</button>
+      </form>
+
+      <div class="doctor-grid" id="doctorGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="consult-banner">
+      <div class="phone-mock">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=480&q=85" alt="Doctor on video consultation" />
+        <div class="call-actions">
+          <span><i data-lucide="mic"></i></span>
+          <span><i data-lucide="video"></i></span>
+          <span class="end"><i data-lucide="phone-off"></i></span>
+        </div>
+      </div>
+      <div class="consult-copy">
+        <span class="eyebrow">After booking</span>
+        <h2>Secure VC & Chat Room</h2>
+        <p>Once appointment is confirmed, patient can join video call and chat with the doctor.</p>
+      </div>
+      <ul class="consult-list">
+        <li><i data-lucide="check-circle-2"></i>Appointment room ID</li>
+        <li><i data-lucide="check-circle-2"></i>Doctor chat</li>
+        <li><i data-lucide="check-circle-2"></i>Camera and mic controls</li>
+      </ul>
+      <button class="black-button" type="button" data-consult>Consult Now <i data-lucide="arrow-right"></i></button>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer-brand">
+      <a class="brand" href="index.html#home">
+        <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+      </a>
+      <p>Your trusted partner in health. Book appointments, consult doctors and stay healthy.</p>
+    </div>
+    <div>
+      <h3>For Patients</h3>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="medicine.html">Medicine Store</a>
+      <a href="services.html">Services</a>
+    </div>
+    <div>
+      <h3>For Providers</h3>
+      <a href="doctor-login.html">Doctor Login</a>
+      <a href="doctor-dashboard.html">Provider Dashboard</a>
+      <a href="services.html">Resources</a>
+    </div>
+    <div class="newsletter">
+      <h3>Newsletter</h3>
+      <p>Subscribe to get health tips and updates.</p>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Email address" required />
+        <button type="submit"><i data-lucide="send"></i></button>
+      </form>
+    </div>
+  </footer>
+
+  <aside class="booking-drawer" id="bookingDrawer" aria-hidden="true">
+    <div class="drawer-card">
+      <button class="drawer-close" type="button" id="drawerClose" aria-label="Close booking form"><i data-lucide="x"></i></button>
+      <div class="drawer-headline">
+        <span class="drawer-calendar"><i data-lucide="calendar-days"></i></span>
+        <div>
+          <span class="eyebrow">Book appointment</span>
+          <h2 id="drawerDoctor">Dr. Ananya Sharma</h2>
+          <p id="drawerSubtitle">Dermatologist &bull; 8+ Experience</p>
+        </div>
+      </div>
+      <form id="bookingForm">
+        <label><span>Patient name</span><input id="patientName" type="text" placeholder="Full name" required /></label>
+        <label><span>Mobile number</span><input id="patientPhone" type="tel" placeholder="10 digit number" required /></label>
+        <label><span>Preferred slot</span><select id="slotSelect"><option>Today, 10:30 AM</option><option>Today, 4:30 PM</option><option>Tomorrow, 11:00 AM</option></select></label>
+        <label><span>Concern</span><textarea id="patientConcern" rows="3" placeholder="Describe your concern"></textarea></label>
+        <div class="booking-secure-note"><i data-lucide="shield-check"></i><span>Your information is secure and encrypted. We respect your privacy.</span></div>
+        <button class="black-button full" type="submit" id="confirmBookingButton">Confirm Booking</button>
+        <div class="booking-payment-note"><span><i data-lucide="shield-check"></i>Easy Consultation</span><span>•</span><span>No Hidden Charges</span></div>
+      </form>
+    </div>
+  </aside>
+
+  <aside class="consult-room" id="consultRoom" aria-hidden="true">
+    <div class="consult-room-card">
+      <header class="consult-room-head">
+        <div>
+          <span class="eyebrow">Appointment confirmed</span>
+          <h2 id="consultDoctorName">Video consultation</h2>
+          <p id="consultSummary">Your doctor room is ready.</p>
+        </div>
+        <button class="drawer-close" type="button" id="consultClose" aria-label="Close consultation room"><i data-lucide="x"></i></button>
+      </header>
+      <div class="consult-room-grid">
+        <section class="video-panel" aria-label="Video consultation room">
+          <div class="doctor-video">
+            <img id="consultDoctorImage" src="assets/disha-healthq-logo-new.png?v=2" alt="Doctor video preview" />
+            <div class="video-overlay"><strong id="consultDoctorLabel">Doctor</strong><span><i data-lucide="wifi"></i> Secure HD room</span></div>
+          </div>
+          <div class="patient-video">
+            <video id="patientVideo" muted playsinline></video>
+            <div class="patient-fallback" id="patientFallback"><i data-lucide="user-round"></i><span id="patientInitials">PT</span></div>
+            <small>You</small>
+          </div>
+          <div class="call-status" id="callStatus"><span></span>Waiting to join call</div>
+          <div class="video-controls">
+            <button type="button" id="joinCallButton"><i data-lucide="video"></i>Join VC</button>
+            <button type="button" id="toggleMicButton"><i data-lucide="mic"></i>Mic On</button>
+            <button type="button" id="toggleCameraButton"><i data-lucide="video"></i>Camera On</button>
+            <button class="end-call" type="button" id="endCallButton"><i data-lucide="phone-off"></i>End</button>
+          </div>
+        </section>
+        <section class="chat-panel" aria-label="Doctor chat">
+          <div class="chat-head"><div><strong>Doctor Chat</strong><small id="consultRoomId">Room ID: --</small></div><span class="chat-online"><span></span>Online</span></div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <form class="chat-form" id="chatForm">
+            <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit" aria-label="Send message"><i data-lucide="send"></i></button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

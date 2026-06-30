@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Medicine Store | Disha HealthQ</title>
+  <link rel="stylesheet" href="styles.css?v=67" />
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="medicine.js?v=8"></script>
+</head>
+<body class="medicine-page">
+  <header class="site-header medicine-header">
+    <a class="brand" href="index.html#home" aria-label="Disha HealthQ home">
+      <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="doctors.html">Find Doctors</a>
+      <a href="doctors.html#specialties-page">Specialties</a>
+      <a href="index.html#clinics">Clinics</a>
+      <a href="index.html#hospital-services">Hospitals</a>
+      <a href="medicine.html" class="active">Medicine Store</a>
+      <a href="services.html">Services</a>
+      <a href="services.html#plans">Health Packages</a>
+      <a href="index.html#footer">Contact Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="location-select" type="button" data-location-request>
+        <i data-lucide="map-pin"></i>
+        <span data-location-label>Select Location</span>
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <a class="login-button medicine-admin-link" href="doctor-login.html">
+        <i data-lucide="stethoscope"></i>
+        Doctor Login
+      </a>
+    </div>
+  </header>
+
+  <main class="store-main medicine-store-page">
+    <section class="store-hero">
+      <div class="store-hero-copy">
+        <span class="hero-trust"><i data-lucide="truck"></i>Medicine store coming soon</span>
+        <h1>Medicine delivery is launching soon</h1>
+        <p>Catalog preview is ready. Ordering, prescription upload, and delivery will open after pharmacy partner verification.</p>
+
+        <form class="store-search" id="medicineSearchForm">
+          <label>
+            <i data-lucide="search"></i>
+            <input id="medicineSearch" type="search" placeholder="Search medicines, vitamins, diabetes care..." />
+          </label>
+          <select id="medicineCategory" aria-label="Medicine category">
+            <option value="all">All Categories</option>
+            <option value="daily">Daily Medicines</option>
+            <option value="wellness">Wellness</option>
+            <option value="baby">Baby Care</option>
+            <option value="devices">Health Devices</option>
+            <option value="personal">Personal Care</option>
+            <option value="elderly">Elderly Care</option>
+            <option value="diabetes">Diabetes Care</option>
+            <option value="ayurveda">Ayurveda & Herbs</option>
+          </select>
+          <button class="medicine-search-button" type="submit">Preview Search</button>
+        </form>
+
+        <div class="store-benefits" aria-label="Medicine store assurances">
+          <span><i data-lucide="shield-check"></i><strong>Verified Pharmacy Partners</strong><small>Onboarding now</small></span>
+          <span><i data-lucide="truck"></i><strong>Delivery</strong><small>Coming soon</small></span>
+          <span><i data-lucide="lock-keyhole"></i><strong>Secure & Private</strong><small>Ready for launch</small></span>
+        </div>
+      </div>
+
+      <div class="store-hero-visual" aria-label="Medicine delivery preview">
+        <img src="assets/medicine-store-hero.png?v=1" alt="Medicine delivery products" />
+      </div>
+    </section>
+
+    <section class="store-layout">
+      <aside class="store-sidebar" aria-label="Medicine categories">
+        <h2>Categories</h2>
+        <div class="store-category-list" id="medicineCategoryList">
+          <button class="active" type="button" data-category="all"><i data-lucide="shopping-bag"></i>All Products</button>
+          <button type="button" data-category="daily"><i data-lucide="pill"></i>Daily Medicines</button>
+          <button type="button" data-category="wellness"><i data-lucide="shield-plus"></i>Wellness</button>
+          <button type="button" data-category="baby"><i data-lucide="baby"></i>Baby Care</button>
+          <button type="button" data-category="devices"><i data-lucide="activity"></i>Health Devices</button>
+          <button type="button" data-category="personal"><i data-lucide="spray-can"></i>Personal Care</button>
+          <button type="button" data-category="elderly"><i data-lucide="user-round-check"></i>Elderly Care</button>
+          <button type="button" data-category="diabetes"><i data-lucide="droplets"></i>Diabetes Care</button>
+          <button type="button" data-category="ayurveda"><i data-lucide="leaf"></i>Ayurveda & Herbs</button>
+        </div>
+      </aside>
+
+      <section class="store-products-section">
+        <div class="section-heading">
+          <div>
+            <h2>Medicine Store Preview</h2>
+            <p>Products are shown only as launch preview. Orders are not live yet.</p>
+          </div>
+          <span class="store-count" id="medicineResultCount">0 items</span>
+        </div>
+        <div class="store-product-grid" id="medicineProductGrid" aria-live="polite"></div>
+        <button class="view-products-button" type="button" id="viewAllMedicineProducts">
+          View All Products
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </section>
+
+      <aside class="cart-panel" aria-label="Medicine cart">
+        <div class="cart-head">
+          <div>
+            <span class="section-kicker"><i data-lucide="shopping-cart"></i>Your Cart</span>
+            <h3>Launch Alert</h3>
+          </div>
+          <button type="button" id="clearMedicineCart">Clear</button>
+        </div>
+        <div class="cart-items" id="medicineCartItems"></div>
+        <div class="cart-summary">
+          <span><small>Subtotal</small><strong id="medicineSubtotal">Rs 0</strong></span>
+          <span><small>Delivery</small><strong>Pharmacy confirms</strong></span>
+        </div>
+        <form class="cart-checkout" id="medicineCheckoutForm">
+          <input id="medicineCustomerName" type="text" placeholder="Patient name" required />
+          <input id="medicineCustomerPhone" type="tel" placeholder="Phone number" required />
+          <label class="prescription-upload-button">
+            <i data-lucide="upload"></i>
+            <span id="medicineFileName">Prescription upload coming soon</span>
+            <input id="medicinePrescription" type="file" accept=".pdf,.png,.jpg,.jpeg" disabled />
+          </label>
+          <small class="prescription-note">Ordering opens after pharmacy onboarding</small>
+          <textarea id="medicineOrderNote" rows="3" placeholder="Which medicine category should we notify you about?"></textarea>
+          <button class="medicine-submit-button" type="submit"><i data-lucide="send"></i>Notify Me</button>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Disha HealthQ</title>
+  <link rel="stylesheet" href="styles.css?v=67" />
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="script.js?v=38"></script>
+</head>
+<body class="home-page">
+  <div class="home-topbar" aria-label="Disha HealthQ launch update">
+    <span><strong>New</strong> Doctor bookings are now open</span>
+    <span>Quality care. Trusted doctors. Just for you.</span>
+    <span>Need help? <b>+91 98765 43210</b></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Disha HealthQ home">
+      <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="doctors.html">Find Doctors</a>
+      <a href="doctors.html#specialties-page">Specialties</a>
+      <a href="#clinics">Clinics</a>
+      <a href="#hospital-services">Hospitals</a>
+      <a href="medicine.html">Medicine Store</a>
+      <a href="services.html">Services</a>
+      <a href="services.html#plans">Health Packages</a>
+      <a href="#footer">Contact Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="location-select" type="button" data-location-request>
+        <i data-lucide="map-pin"></i>
+        <span data-location-label>Location Allowed</span>
+        <i data-lucide="chevron-down"></i>
+      </button>
+      <button class="login-button home-user-button" type="button" data-login aria-label="Login or signup">
+        <i data-lucide="user-round"></i>
+      </button>
+      <button class="mobile-menu-toggle" type="button" data-mobile-menu aria-label="Open navigation menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu-backdrop" data-mobile-menu-close></div>
+  <aside class="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-drawer-logo">
+      <img src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </div>
+    <button class="drawer-profile-card" type="button" data-login>
+      <span><i data-lucide="user-round"></i></span>
+      <strong>Hello, Rahul!</strong>
+      <small>rahul.sharma@gmail.com</small>
+      <i data-lucide="chevron-right"></i>
+    </button>
+
+    <div class="drawer-section">
+      <h2>Healthcare</h2>
+      <a class="active" href="doctors.html"><i data-lucide="stethoscope"></i><span>Find Doctors</span><i data-lucide="chevron-right"></i></a>
+      <a href="#hospital-services"><i data-lucide="hospital"></i><span>Hospitals</span><i data-lucide="chevron-right"></i></a>
+      <a href="#clinics"><i data-lucide="building-2"></i><span>Clinics</span><i data-lucide="chevron-right"></i></a>
+      <a href="medicine.html"><i data-lucide="briefcase-medical"></i><span>Medicine Store</span><i data-lucide="chevron-right"></i></a>
+      <a href="doctors.html#specialties-page"><i data-lucide="user-search"></i><span>Specialties</span><i data-lucide="chevron-right"></i></a>
+      <a href="services.html"><i data-lucide="hand-heart"></i><span>Services</span><i data-lucide="chevron-right"></i></a>
+    </div>
+
+    <div class="drawer-section">
+      <h2>Support</h2>
+      <a href="#footer"><i data-lucide="phone"></i><span>Contact Us</span><i data-lucide="chevron-right"></i></a>
+      <a href="#footer"><i data-lucide="circle-help"></i><span>Help & Support</span><i data-lucide="chevron-right"></i></a>
+      <a href="#footer"><i data-lucide="shield-check"></i><span>Health Articles</span><i data-lucide="chevron-right"></i></a>
+    </div>
+
+    <div class="drawer-section">
+      <h2>Account</h2>
+      <a href="doctor-login.html"><i data-lucide="settings"></i><span>Settings</span><i data-lucide="chevron-right"></i></a>
+      <a href="#footer"><i data-lucide="bell"></i><span>Notifications</span><em>3</em><i data-lucide="chevron-right"></i></a>
+      <button class="drawer-logout" type="button"><i data-lucide="log-out"></i><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-copy">
+        <span class="hero-trust"><i data-lucide="shield-check"></i>Your health, our priority</span>
+        <h1>Find & Book<br>Appointments<span class="desktop-inline"> with</span><span class="mobile-line"><br>with </span><br class="desktop-break"><span>Trusted Doctors</span></h1>
+        <p>Search top doctors, check availability, and book appointments instantly. Quality care, just a click away.</p>
+      </div>
+
+      <div class="hero-art" aria-label="Doctor consultation preview">
+        <div class="hero-orbit"></div>
+        <button class="hero-doctor-frame" type="button" id="heroDoctorButton" aria-label="Change doctor image">
+          <img class="hero-doctor" id="heroDoctorImage" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=760&q=90" alt="Trusted doctor" />
+        </button>
+
+        <article class="hero-feature video">
+          <span class="feature-icon purple"><i data-lucide="users-round"></i></span>
+          <div>
+            <strong>10,000+</strong>
+            <small>Happy Patients<br>4.8/5 avg reviews</small>
+          </div>
+        </article>
+        <article class="hero-feature verified">
+          <span class="feature-icon green"><i data-lucide="shield-check"></i></span>
+          <div>
+            <strong>Trusted by Thousands</strong>
+            <small>Certified & Verified Healthcare Experts</small>
+          </div>
+        </article>
+        <article class="hero-feature secure">
+          <span class="feature-icon orange"><i data-lucide="lock-keyhole"></i></span>
+          <div>
+            <strong>Secure & Private</strong>
+            <small>Your data is safe with us</small>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero-mini-features" aria-label="Appointment features">
+        <span><i data-lucide="video"></i><strong>Video Consultation</strong><small>Connect from anywhere</small></span>
+        <span><i data-lucide="shield-check"></i><strong>100% Verified Doctors</strong><small>Experienced & trusted</small></span>
+        <span><i data-lucide="lock-keyhole"></i><strong>Secure & Private</strong><small>Your data is safe with us</small></span>
+        <span><i data-lucide="headphones"></i><strong>24/7 Support</strong><small>We're here to help</small></span>
+      </div>
+
+      <form class="hero-search" id="heroSearch">
+        <label class="search-field search-main">
+          <i data-lucide="search"></i>
+          <input id="doctorSearch" type="search" placeholder="Search doctors, specialty..." autocomplete="off" />
+        </label>
+        <label class="search-field">
+          <i data-lucide="grid-2x2"></i>
+          <select id="specialtySelect" aria-label="Select specialty">
+            <option value="All">All Specialties</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Orthopedist">Orthopedist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Gynecologist">Gynecologist</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Ophthalmologist">Ophthalmologist</option>
+            <option value="Dentist">Dentist</option>
+          </select>
+        </label>
+        <label class="search-field">
+          <i data-lucide="calendar-days"></i>
+          <select id="availabilitySelect" aria-label="Choose availability">
+            <option>Available Today</option>
+            <option>Tomorrow</option>
+            <option>This Week</option>
+          </select>
+        </label>
+        <button class="black-button" type="submit">Search Doctors <i data-lucide="arrow-right"></i></button>
+
+        <div class="popular-searches" aria-label="Popular searches">
+          <strong>Popular Searches:</strong>
+          <button type="button" data-specialty="Dermatologist">Dermatologist</button>
+          <button type="button" data-specialty="Pediatrician">Pediatrician</button>
+          <button type="button" data-specialty="Gynecologist">Gynecologist</button>
+          <button type="button" data-specialty="Orthopedist">Orthopedist</button>
+          <button type="button" data-specialty="Cardiologist">Cardiologist</button>
+          <button type="button" data-specialty="All">View all <i data-lucide="arrow-right"></i></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="mobile-rating-band" aria-label="Disha HealthQ patient trust">
+      <div class="avatar-stack" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=90&q=80" alt="" />
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=90&q=80" alt="" />
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=90&q=80" alt="" />
+        <span><i data-lucide="star"></i></span>
+      </div>
+      <div>
+        <strong>10,000+</strong>
+        <small>Happy Patients</small>
+      </div>
+      <div>
+        <strong>4.8/5 <i data-lucide="star"></i></strong>
+        <small>(2k+ reviews)</small>
+      </div>
+    </section>
+
+    <section class="hero-stats" aria-label="Disha HealthQ booking benefits">
+      <article>
+        <span class="stat-icon purple"><i data-lucide="calendar-days"></i></span>
+        <div class="stat-copy">
+          <strong>Quick Booking</strong>
+          <small>Book in just a few clicks</small>
+        </div>
+      </article>
+      <article>
+        <span class="stat-icon green"><i data-lucide="clock-3"></i></span>
+        <div class="stat-copy">
+          <strong>Real-time Availability</strong>
+          <small>Live doctor schedules</small>
+        </div>
+      </article>
+      <article>
+        <span class="stat-icon blue"><i data-lucide="star"></i></span>
+        <div class="stat-copy">
+          <strong>Top Rated Doctors</strong>
+          <small>Best care, always</small>
+        </div>
+      </article>
+      <article>
+        <span class="stat-icon green"><i data-lucide="credit-card"></i></span>
+        <div class="stat-copy">
+          <strong>Multiple Payment Options</strong>
+          <small>Safe & convenient</small>
+        </div>
+      </article>
+    </section>
+
+    <button class="home-help-widget" type="button" data-consult>
+      <i data-lucide="message-circle"></i>
+      <span><strong>Need Help?</strong><small>Chat with us</small></span>
+    </button>
+
+    <section class="service-strip" id="clinics" aria-label="Service highlights">
+      <article>
+        <span class="strip-icon purple"><i data-lucide="user-search"></i></span>
+        <div>
+          <strong>Find Doctors</strong>
+          <small>Search by specialization, symptoms or name</small>
+        </div>
+      </article>
+      <article>
+        <span class="strip-icon pink"><i data-lucide="calendar-days"></i></span>
+        <div>
+          <strong>Easy Booking</strong>
+          <small>Book appointments in just a few clicks</small>
+        </div>
+      </article>
+      <article>
+        <span class="strip-icon blue"><i data-lucide="video"></i></span>
+        <div>
+          <strong>Video Consultation</strong>
+          <small>Consult with doctors from your home</small>
+        </div>
+      </article>
+      <article>
+        <span class="strip-icon green"><i data-lucide="file-pen-line"></i></span>
+        <div>
+          <strong>E-Prescription</strong>
+          <small>Coming soon after consultation</small>
+        </div>
+      </article>
+      <article>
+        <span class="strip-icon orange"><i data-lucide="shield-check"></i></span>
+        <div>
+          <strong>Secure & Private</strong>
+          <small>Your data is safe and confidential</small>
+        </div>
+      </article>
+      <article>
+        <span class="strip-icon purple"><i data-lucide="headphones"></i></span>
+        <div>
+          <strong>24/7 Support</strong>
+          <small>Launch support opening soon</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-section medicine-store-section medicine-store-compact" id="medicine-store">
+      <a class="medicine-store-link-card" href="medicine.html" aria-label="Open Medicine Store">
+        <span class="section-kicker"><i data-lucide="pill"></i>Medicine Store Coming Soon</span>
+        <div class="medicine-cta-copy">
+          <h2>Medicine delivery is in launch setup</h2>
+          <p>The store page is ready as a preview. Orders, prescription upload, and pharmacy delivery will open after partner onboarding.</p>
+          <div class="medicine-cta-points" aria-label="Medicine store features">
+            <span><i data-lucide="shopping-cart"></i>Catalog preview</span>
+            <span><i data-lucide="file-up"></i>Prescription upload soon</span>
+            <span><i data-lucide="truck"></i>Delivery soon</span>
+          </div>
+        </div>
+        <strong class="medicine-cta-action">View launch preview <i data-lucide="arrow-right"></i></strong>
+        <span class="medicine-cta-visual" aria-hidden="true">
+          <i data-lucide="briefcase-medical"></i>
+          <i data-lucide="pill"></i>
+          <i data-lucide="shield-check"></i>
+        </span>
+      </a>
+    </section>
+
+    <section class="content-section hospital-section hospital-board-section" id="hospital-services" aria-label="Hospital bed support">
+      <div class="hospital-shell hospital-board">
+        <div class="hospital-status-grid">
+          <article class="hospital-status-card">
+            <span class="hospital-icon teal"><i data-lucide="bed"></i></span>
+            <div>
+              <strong>Online Bed Booking</strong>
+              <small>General beds</small>
+            </div>
+            <b>Soon</b>
+            <em>Partner onboarding <i data-lucide="arrow-right"></i></em>
+          </article>
+          <article class="hospital-status-card urgent">
+            <span class="hospital-icon orange"><i data-lucide="heart-pulse"></i></span>
+            <div>
+              <strong>ICU Bed Availability</strong>
+              <small>Critical care beds</small>
+            </div>
+            <b>Soon</b>
+            <em>Critical care preview <i data-lucide="arrow-right"></i></em>
+          </article>
+          <article class="hospital-status-card">
+            <span class="hospital-icon teal"><i data-lucide="wind"></i></span>
+            <div>
+              <strong>Oxygen Bed Status</strong>
+              <small>Oxygen-ready beds</small>
+            </div>
+            <b>Soon</b>
+            <em>Oxygen support preview <i data-lucide="arrow-right"></i></em>
+          </article>
+        </div>
+
+        <form class="hospital-search" id="hospitalServiceForm">
+          <label>
+            <span><i data-lucide="map-pin"></i>Location</span>
+            <select id="hospitalLocation">
+              <option value="">Select Location</option>
+            </select>
+          </label>
+          <label>
+            <span><i data-lucide="bed"></i>Bed Type</span>
+            <select id="hospitalBedType">
+              <option>ICU Bed</option>
+              <option>Oxygen Bed</option>
+              <option>General Bed</option>
+              <option>Private Room</option>
+            </select>
+          </label>
+          <label>
+            <span><i data-lucide="calendar-days"></i>Admission</span>
+            <select id="hospitalAdmission">
+              <option>Today</option>
+              <option>Tomorrow</option>
+              <option>Emergency Now</option>
+            </select>
+          </label>
+          <button class="purple-button" type="submit">
+            <i data-lucide="search"></i>
+            Check Availability
+          </button>
+        </form>
+
+        <div class="hospital-list" aria-label="Nearby hospital bed availability">
+          <article class="hospital-card">
+            <div class="hospital-card-head">
+              <span class="hospital-logo blue"><i data-lucide="hospital"></i></span>
+              <div>
+                <strong>Partner Care Hospital</strong>
+                <small>Partner onboarding in progress</small>
+              </div>
+              <span class="live-pill soon"><i data-lucide="clock-3"></i>Soon</span>
+            </div>
+            <div class="bed-metrics">
+              <span><b>42</b>General</span>
+              <span><b>8</b>ICU</span>
+              <span><b>18</b>Oxygen</span>
+            </div>
+            <div class="availability-bar"><span style="width: 68%"></span></div>
+            <strong class="availability-label">68% Beds Available</strong>
+            <button class="book-bed" type="button" data-hospital-soon>Book Bed</button>
+          </article>
+
+          <article class="hospital-card">
+            <div class="hospital-card-head">
+              <span class="hospital-logo green"><i data-lucide="hospital"></i></span>
+              <div>
+                <strong>Disha HealthQ Multi Speciality</strong>
+                <small>ICU and oxygen desk onboarding</small>
+              </div>
+              <span class="live-pill soon"><i data-lucide="clock-3"></i>Soon</span>
+            </div>
+            <div class="bed-metrics">
+              <span><b>31</b>General</span>
+              <span><b>5</b>ICU</span>
+              <span><b>12</b>Oxygen</span>
+            </div>
+            <div class="availability-bar"><span style="width: 60%"></span></div>
+            <strong class="availability-label">60% Beds Available</strong>
+            <button class="book-bed" type="button" data-hospital-soon>Book Bed</button>
+          </article>
+
+          <article class="hospital-card">
+            <div class="hospital-card-head">
+              <span class="hospital-logo orange"><i data-lucide="hospital"></i></span>
+              <div>
+                <strong>Heart & Trauma Centre</strong>
+                <small>Critical care desk onboarding</small>
+              </div>
+              <span class="live-pill soon"><i data-lucide="clock-3"></i>Soon</span>
+            </div>
+            <div class="bed-metrics">
+              <span><b>26</b>General</span>
+              <span><b>11</b>ICU</span>
+              <span><b>20</b>Oxygen</span>
+            </div>
+            <div class="availability-bar"><span style="width: 72%"></span></div>
+            <strong class="availability-label">72% Beds Available</strong>
+            <button class="book-bed" type="button" data-hospital-soon>Book Bed</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section specialty-section" id="specialties">
+      <div class="section-heading">
+        <h2>Explore by <span>Specialization</span></h2>
+        <button class="text-link" type="button" data-specialty="All">View all specialties <i data-lucide="arrow-right"></i></button>
+      </div>
+
+      <div class="specialty-grid">
+        <button class="specialty-card" type="button" data-specialty="Cardiologist">
+          <span class="circle-icon pink"><i data-lucide="heart-pulse"></i></span>
+          <strong>Cardiology</strong>
+          <small>Heart & Vascular Care</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Neurologist">
+          <span class="circle-icon purple"><i data-lucide="brain"></i></span>
+          <strong>Neurology</strong>
+          <small>Brain & Nervous System</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Orthopedist">
+          <span class="circle-icon green"><i data-lucide="bone"></i></span>
+          <strong>Orthopedics</strong>
+          <small>Bones, Joints & Muscles</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Dermatologist">
+          <span class="circle-icon pink"><i data-lucide="scan-face"></i></span>
+          <strong>Dermatology</strong>
+          <small>Skin, Hair & Nail Care</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Pediatrician">
+          <span class="circle-icon orange"><i data-lucide="baby"></i></span>
+          <strong>Pediatrics</strong>
+          <small>Child & Adolescent Care</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Gynecologist">
+          <span class="circle-icon pink"><i data-lucide="venus"></i></span>
+          <strong>Gynecology</strong>
+          <small>Women's Health</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Ophthalmologist">
+          <span class="circle-icon blue"><i data-lucide="eye"></i></span>
+          <strong>Ophthalmology</strong>
+          <small>Eye & Vision Care</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+        <button class="specialty-card" type="button" data-specialty="Dentist">
+          <span class="circle-icon purple"><i data-lucide="circle-plus"></i></span>
+          <strong>Dentistry</strong>
+          <small>Teeth & Oral Care</small>
+          <em><i data-lucide="chevron-right"></i></em>
+        </button>
+      </div>
+      <div class="specialty-dots" aria-hidden="true">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <section class="content-section doctors-section" id="doctors">
+      <div class="section-heading doctors-heading">
+        <div>
+          <div class="heading-line">
+            <h2>Available Doctors</h2>
+            <span class="trust-badge"><i data-lucide="sparkles"></i>Only approved doctors are listed</span>
+          </div>
+          <p>Book an appointment with approved doctors and open VC/chat after confirmation.</p>
+        </div>
+        <a class="text-link" href="doctors.html">View all doctors <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <form class="doctor-toolbar" id="doctorToolbar">
+        <label class="toolbar-field toolbar-search">
+          <i data-lucide="search"></i>
+          <input id="doctorSectionSearch" type="search" placeholder="Search doctors, specialities, clinics..." />
+        </label>
+        <label class="toolbar-field">
+          <i data-lucide="stethoscope"></i>
+          <select id="doctorSectionSpecialty" aria-label="Select specialty">
+            <option value="All">Select Speciality</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Orthopedist">Orthopedist</option>
+            <option value="Dermatologist">Dermatologist</option>
+            <option value="Gynecologist">Gynecologist</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Ophthalmologist">Ophthalmologist</option>
+            <option value="Dentist">Dentist</option>
+          </select>
+        </label>
+        <label class="toolbar-field">
+          <i data-lucide="calendar-days"></i>
+          <select id="availabilityFilter" aria-label="Availability">
+            <option>Available Today</option>
+            <option>Available Tomorrow</option>
+            <option>This Week</option>
+          </select>
+        </label>
+        <button class="filter-button" type="button">
+          <i data-lucide="sliders-horizontal"></i>
+          Filters
+        </button>
+        <button class="purple-button" type="submit">
+          <i data-lucide="search"></i>
+          Search
+        </button>
+      </form>
+
+      <div class="doctor-grid" id="doctorGrid" data-limit="3" aria-live="polite"></div>
+    </section>
+
+    <section class="consult-banner consultation-board">
+      <div class="phone-mock consultation-phone">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=480&q=85" alt="Doctor on video consultation" />
+        <div class="call-actions">
+          <span><i data-lucide="mic"></i></span>
+          <span><i data-lucide="video"></i></span>
+          <span class="end"><i data-lucide="phone-off"></i></span>
+        </div>
+      </div>
+      <div class="consult-copy">
+        <span class="eyebrow"><i data-lucide="globe-2"></i>Consult from anywhere</span>
+        <h2>Online Consultation at Your Convenience</h2>
+        <p>Connect with experienced doctors through secure video consultation from the comfort of your home.</p>
+        <div class="consult-trust-row">
+          <span><i data-lucide="shield-check"></i><strong>Trusted by<br>10L+ Patients</strong></span>
+          <span><i data-lucide="lock-keyhole"></i><strong>100% Secure<br>& Confidential</strong></span>
+        </div>
+      </div>
+      <ul class="consult-list">
+        <li><span><i data-lucide="clock-3"></i></span><div><strong>Instant Appointments</strong><small>Book & consult in minutes</small></div></li>
+        <li><span><i data-lucide="video"></i></span><div><strong>Secure Video Call</strong><small>HIPAA-compliant & encrypted</small></div></li>
+        <li><span><i data-lucide="file-text"></i></span><div><strong>Digital Prescription <em>Coming Soon</em></strong><small>E-prescriptions at your fingertips</small></div></li>
+        <li><span><i data-lucide="heart-handshake"></i></span><div><strong>Follow-up Care</strong><small>Continuous care, always</small></div></li>
+      </ul>
+      <div class="consult-action-panel">
+        <button class="black-button" type="button" data-consult>
+          <span><i data-lucide="video"></i></span>
+          Consult Now
+          <i data-lucide="arrow-right"></i>
+        </button>
+        <small><i data-lucide="shield-check"></i>Safe, Secure & Private</small>
+      </div>
+    </section>
+
+    <section class="number-band consult-feature-band" aria-label="Platform numbers">
+      <article>
+        <span class="stat-icon green"><i data-lucide="user-round-check"></i></span>
+        <strong>Approved</strong>
+        <small>Verified doctors you can trust</small>
+        <em><i data-lucide="arrow-right"></i></em>
+      </article>
+      <article>
+        <span class="stat-icon green"><i data-lucide="map-pinned"></i></span>
+        <strong>Nearby</strong>
+        <small>Find care near you with ease</small>
+        <em><i data-lucide="arrow-right"></i></em>
+      </article>
+      <article>
+        <span class="stat-icon blue"><i data-lucide="briefcase-medical"></i></span>
+        <strong>Medicine</strong>
+        <small>Request medicines from our partner stores</small>
+        <em><i data-lucide="arrow-right"></i></em>
+      </article>
+      <article>
+        <span class="stat-icon orange"><i data-lucide="calendar-days"></i></span>
+        <strong>VC/Chat</strong>
+        <small>Connect via video or chat after booking</small>
+        <em><i data-lucide="arrow-right"></i></em>
+      </article>
+    </section>
+
+    <section class="content-section reviews-launch-section" id="reviews">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker"><i data-lucide="message-square-heart"></i>Patient Reviews</span>
+          <h2>Customer reviews <span>coming soon</span></h2>
+          <p>We just got Disha HealthQ live. Verified patient feedback will appear here after real appointments are completed through the platform.</p>
+        </div>
+      </div>
+      <div class="review-launch-card">
+        <span class="hospital-icon green"><i data-lucide="sparkles"></i></span>
+        <div>
+          <strong>No fake reviews added</strong>
+          <p>Only real patient reviews from completed doctor consultations will be shown here.</p>
+        </div>
+        <a class="text-link" href="doctors.html">Book a doctor <i data-lucide="arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section class="app-banner" id="packages">
+      <div class="app-copy">
+        <span class="app-kicker"><i data-lucide="calendar-days"></i> Coming Soon</span>
+        <h2>Disha HealthQ App</h2>
+        <strong>Your Health, Simplified</strong>
+        <p>Access medical records, get reminders, and connect with doctors effortlessly. All your healthcare needs - in one secure place.</p>
+        <div class="store-buttons">
+          <button type="button" disabled><i data-lucide="play"></i><span>Coming soon on<br><strong>Google Play</strong></span><i data-lucide="arrow-right"></i></button>
+          <button type="button" disabled><i data-lucide="apple"></i><span>Coming soon on<br><strong>App Store</strong></span><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="app-phone app-phone-large" aria-hidden="true">
+        <div class="mini-screen">
+          <span class="phone-speaker"></span>
+          <img src="assets/disha-healthq-logo-new.png?v=2" alt="" />
+          <small>Your trusted partner in health.</small>
+          <span class="phone-wave"></span>
+          <span class="app-slider-dots"><b></b><b></b><b></b><b></b></span>
+        </div>
+      </div>
+
+      <ul class="app-feature-list">
+        <li><span><i data-lucide="clipboard-plus"></i></span><div><strong>Health Records</strong><small>Access your medical history anytime, anywhere.</small></div></li>
+        <li><span><i data-lucide="bell"></i></span><div><strong>Smart Reminders</strong><small>Never miss medicines or appointments again.</small></div></li>
+        <li><span><i data-lucide="calendar-days"></i></span><div><strong>Easy Booking</strong><small>Book and manage consultations with ease.</small></div></li>
+        <li><span><i data-lucide="shield-check"></i></span><div><strong>Secure & Private</strong><small>Your data is protected with top-notch security.</small></div></li>
+      </ul>
+
+      <div class="app-trust-strip">
+        <article><span><i data-lucide="shield-check"></i></span><div><strong>HIPAA Compliant</strong><small>Your data is safe</small></div></article>
+        <article><span><i data-lucide="lock-keyhole"></i></span><div><strong>100% Secure</strong><small>End-to-end encryption</small></div></article>
+        <article><span><i data-lucide="users-round"></i></span><div><strong>Growing Care Community</strong><small>Built for patients</small></div></article>
+        <article><span><i data-lucide="star"></i></span><div><strong>Built for Better Health</strong><small>Care that's always with you</small></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer-brand">
+      <a class="brand" href="#home">
+        <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+      </a>
+      <p>Your trusted partner in health. Book appointments, consult doctors and stay healthy.</p>
+      <div class="footer-social" aria-label="Social links">
+        <a href="#footer" aria-label="Facebook">f</a>
+        <a href="#footer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="#footer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+        <a href="#footer" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div>
+      <h3>For Patients</h3>
+      <a href="doctors.html">Find Doctors</a>
+      <a href="doctors.html">Book Appointment</a>
+      <a href="#home">Video Consultation</a>
+      <a href="services.html#plans">Health Packages</a>
+      <a href="#footer">Patient Dashboard</a>
+    </div>
+    <div>
+      <h3>For Providers</h3>
+      <a href="#footer">List Your Practice</a>
+      <a href="doctor-login.html">Doctor Login</a>
+      <a href="doctor-dashboard.html">Provider Dashboard</a>
+      <a href="#footer">Resources</a>
+      <a href="#footer">Help Center</a>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <a href="#footer">About Us</a>
+      <a href="#footer">Careers</a>
+      <a href="#footer">Blog</a>
+      <a href="#footer">Press & Media</a>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <a href="#footer">Help Center</a>
+      <a href="#footer">Contact Us</a>
+      <a href="#footer">Privacy Policy</a>
+      <a href="#footer">Terms & Conditions</a>
+    </div>
+    <div class="newsletter">
+      <h3>Newsletter</h3>
+      <p>Subscribe to get health tips and updates.</p>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Email address" required />
+        <button type="submit"><i data-lucide="send"></i></button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Disha HealthQ. All rights reserved.</span>
+      <span><a href="#footer">Privacy Policy</a><a href="#footer">Terms & Conditions</a></span>
+    </div>
+  </footer>
+
+  <aside class="booking-drawer" id="bookingDrawer" aria-hidden="true">
+    <div class="drawer-card">
+      <button class="drawer-close" type="button" id="drawerClose" aria-label="Close booking form">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="drawer-headline">
+        <span class="drawer-calendar"><i data-lucide="calendar-days"></i></span>
+        <div>
+          <span class="eyebrow">Book appointment</span>
+          <h2 id="drawerDoctor">Dr. Ananya Sharma</h2>
+          <p id="drawerSubtitle">Dermatologist &bull; 8+ Experience</p>
+        </div>
+      </div>
+      <form id="bookingForm">
+        <label>
+          <span>Patient name</span>
+          <input id="patientName" type="text" placeholder="Full name" required />
+        </label>
+        <label>
+          <span>Mobile number</span>
+          <input id="patientPhone" type="tel" placeholder="10 digit number" required />
+        </label>
+        <label>
+          <span>Preferred slot</span>
+          <select id="slotSelect">
+            <option>Today, 10:30 AM</option>
+            <option>Today, 4:30 PM</option>
+            <option>Tomorrow, 11:00 AM</option>
+          </select>
+        </label>
+        <label>
+          <span>Concern</span>
+          <textarea id="patientConcern" rows="3" placeholder="Describe your concern"></textarea>
+        </label>
+        <div class="booking-secure-note">
+          <i data-lucide="shield-check"></i>
+          <span>Your information is secure and encrypted. We respect your privacy.</span>
+        </div>
+        <button class="black-button full" type="submit" id="confirmBookingButton">Confirm Booking</button>
+        <div class="booking-payment-note">
+          <span><i data-lucide="shield-check"></i>Easy Consultation</span>
+          <span>•</span>
+          <span>No Hidden Charges</span>
+        </div>
+      </form>
+    </div>
+  </aside>
+
+  <aside class="consult-room" id="consultRoom" aria-hidden="true">
+    <div class="consult-room-card">
+      <header class="consult-room-head">
+        <div>
+          <span class="eyebrow">Appointment confirmed</span>
+          <h2 id="consultDoctorName">Video consultation</h2>
+          <p id="consultSummary">Your doctor room is ready.</p>
+        </div>
+        <button class="drawer-close" type="button" id="consultClose" aria-label="Close consultation room">
+          <i data-lucide="x"></i>
+        </button>
+      </header>
+
+      <div class="consult-room-grid">
+        <section class="video-panel" aria-label="Video consultation room">
+          <div class="doctor-video">
+            <img id="consultDoctorImage" src="assets/disha-healthq-logo-new.png?v=2" alt="Doctor video preview" />
+            <div class="video-overlay">
+              <strong id="consultDoctorLabel">Doctor</strong>
+              <span><i data-lucide="wifi"></i> Secure HD room</span>
+            </div>
+          </div>
+
+          <div class="patient-video">
+            <video id="patientVideo" muted playsinline></video>
+            <div class="patient-fallback" id="patientFallback">
+              <i data-lucide="user-round"></i>
+              <span id="patientInitials">PT</span>
+            </div>
+            <small>You</small>
+          </div>
+
+          <div class="call-status" id="callStatus">
+            <span></span>
+            Waiting to join call
+          </div>
+
+          <div class="video-controls">
+            <button type="button" id="joinCallButton"><i data-lucide="video"></i>Join VC</button>
+            <button type="button" id="toggleMicButton"><i data-lucide="mic"></i>Mic On</button>
+            <button type="button" id="toggleCameraButton"><i data-lucide="video"></i>Camera On</button>
+            <button class="end-call" type="button" id="endCallButton"><i data-lucide="phone-off"></i>End</button>
+          </div>
+        </section>
+
+        <section class="chat-panel" aria-label="Doctor chat">
+          <div class="chat-head">
+            <div>
+              <strong>Doctor Chat</strong>
+              <small id="consultRoomId">Room ID: --</small>
+            </div>
+            <span class="chat-online"><span></span>Online</span>
+          </div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <form class="chat-form" id="chatForm">
+            <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit" aria-label="Send message"><i data-lucide="send"></i></button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

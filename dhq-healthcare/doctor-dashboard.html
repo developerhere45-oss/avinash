@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Doctor Dashboard | Disha HealthQ</title>
+  <link rel="stylesheet" href="styles.css?v=62" />
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="doctor-dashboard.js?v=8"></script>
+</head>
+<body>
+  <header class="site-header dashboard-header">
+    <a class="brand" href="index.html#home" aria-label="Disha HealthQ home">
+      <img class="brand-logo" src="assets/disha-healthq-logo-new.png?v=2" alt="Disha HealthQ" />
+    </a>
+    <nav class="nav-links" aria-label="Doctor dashboard navigation">
+      <a href="#appointments" class="active">Appointments</a>
+      <a href="#feedback">Feedback</a>
+      <a href="doctors.html">Patient View</a>
+    </nav>
+    <div class="header-actions">
+      <button class="login-button" type="button" id="doctorLogoutButton"><i data-lucide="log-out"></i>Logout</button>
+    </div>
+  </header>
+
+  <main class="doctor-dashboard-main">
+    <section class="doctor-dashboard-hero">
+      <div class="dashboard-doctor-card">
+        <img id="dashboardDoctorImage" src="assets/disha-healthq-logo-new.png?v=2" alt="Doctor profile" />
+        <div>
+          <span class="hero-trust"><i data-lucide="shield-check"></i>Doctor Dashboard</span>
+          <h1 id="dashboardDoctorName">Loading doctor...</h1>
+          <p id="dashboardDoctorMeta">Appointments and completion status.</p>
+        </div>
+      </div>
+      <button class="purple-button" type="button" id="refreshDashboard"><i data-lucide="refresh-cw"></i>Refresh</button>
+    </section>
+
+    <section class="dashboard-metrics" aria-label="Appointment metrics">
+      <article><span class="stat-icon purple"><i data-lucide="calendar-days"></i></span><div><strong id="metricTotal">0</strong><small>Total appointments</small></div></article>
+      <article><span class="stat-icon blue"><i data-lucide="clock-3"></i></span><div><strong id="metricUpcoming">0</strong><small>Pending / upcoming</small></div></article>
+      <article><span class="stat-icon green"><i data-lucide="badge-check"></i></span><div><strong id="metricCompleted">0</strong><small>Completed</small></div></article>
+      <article><span class="stat-icon orange"><i data-lucide="message-circle"></i></span><div><strong id="metricRating">Live</strong><small>VC/chat rooms</small></div></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="dashboard-panel" id="appointments">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker"><i data-lucide="list-checks"></i>Appointments</span>
+            <h2>Patient Bookings</h2>
+          </div>
+          <div class="dashboard-filter">
+            <button class="active" type="button" data-status-filter="all">All</button>
+            <button type="button" data-status-filter="confirmed">Upcoming</button>
+            <button type="button" data-status-filter="completed">Completed</button>
+          </div>
+        </div>
+        <div class="appointment-list" id="doctorAppointmentList" aria-live="polite"></div>
+      </div>
+
+      <aside class="dashboard-panel" id="feedback">
+        <span class="section-kicker"><i data-lucide="message-square-heart"></i>Feedback</span>
+        <h2>Patient Feedback</h2>
+        <div class="doctor-review-list" id="doctorReviewList"></div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
